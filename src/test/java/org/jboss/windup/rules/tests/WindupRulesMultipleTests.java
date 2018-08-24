@@ -167,6 +167,7 @@ public class WindupRulesMultipleTests {
 
             LOG.info(String.format("Testing execution of rule %s%n", ruleFiles[0].getName()));
             visit(ruleTestFiles[0], ruleTestFiles[1]);
+            Assert.assertNotNull("No test file found", ruleTestFiles);
         }
         catch(AssertionError ae)
         {
