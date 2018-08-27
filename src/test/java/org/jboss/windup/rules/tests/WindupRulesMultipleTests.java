@@ -266,8 +266,6 @@ public class WindupRulesMultipleTests {
                     }
                 }
 
-
-
                 RuleProviderRegistry providerRegistry = ruleLoader.loadConfiguration(ruleLoaderContext);
                 ruleProviderService = new RuleProviderService(context);
                 ruleExecutionService = new RuleExecutionService(context);
@@ -292,14 +290,10 @@ public class WindupRulesMultipleTests {
 
                 //Build a list of RuleExecutionModel for each rule we tried to execute
                 for (String id : idsList) {
-
                     Iterable<RuleExecutionModel> execInfoList = this.ruleExecutionService.findAllByProperty(RuleExecutionModel.RULE_ID,id);
-
-
                     for (RuleExecutionModel anExecInfoList : execInfoList) {
                         masterExecList.add(anExecInfoList);
                     }
-
                 }
 
                 //Assess failure and execution status of each rule we tried to execute
@@ -323,7 +317,6 @@ public class WindupRulesMultipleTests {
                         {
                             Assert.assertTrue(execInfo.getRuleId() + ": Executed",true);
                         }
-
                     }
                 }
 
@@ -448,7 +441,7 @@ public class WindupRulesMultipleTests {
             }
         }
         Assert.assertTrue("No test file matching rule",foundMatchingTestFile);
-        Assert.assertEquals("Test rule Ids " + buildListOfFailingTestIds(failingIds) + " not found", 0, failingIds.size());
+        Assert.assertTrue("Test rule Ids " + buildListOfFailingTestIds(failingIds) + " not found",failingIds.size() == 0);
     }
 
     private List<String> getRuleIds(Path ruleFilePath)
@@ -493,7 +486,7 @@ public class WindupRulesMultipleTests {
     {
         List<String> ids = new ArrayList<>();
         failingIds.forEach( id -> ids.add(id + "-test"));
-        return StringUtils.join(ids, ",");
+        return StringUtils.join(ids, ", ");
     }
 
     private File[] findMatchingTestFile(File ruleFile, File directory)
