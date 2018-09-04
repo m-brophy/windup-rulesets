@@ -447,7 +447,7 @@ public class WindupRulesMultipleTests {
             }
         }
         Assert.assertTrue("No test file matching rule",foundMatchingTestFile);
-        Assert.assertTrue("Test rule Ids " + buildListOfFailingTestIds(failingIds) + " not found", failingIds.size() > 0);
+        Assert.assertTrue("Test rule Ids " + buildListOfFailingTestIds(failingIds) + " not found", failingIds.size() == 0);
     }
 
     private List<String> getRuleIds(Path ruleFilePath)
