@@ -12,7 +12,7 @@
                 <when>
                     <not>
                         <iterable-filter size="1">
-                            <hint-exists message="The default required status for Elasticsearch indexes is now yellow"/>
+                            <hint-exists message="The default required status for Elasticsearch indexes is now `yellow`"/>
                         </iterable-filter> 
                     </not>
                 </when>
